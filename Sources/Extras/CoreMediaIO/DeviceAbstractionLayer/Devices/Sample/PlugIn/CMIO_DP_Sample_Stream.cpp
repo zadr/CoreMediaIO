@@ -366,9 +366,9 @@ namespace CMIO { namespace DP { namespace Sample
 				answer = true;
 				break;
 			
-			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
-				answer = true;
-				break;
+//			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
+//				answer = true;
+//				break;
 			
 			default:
 				answer = DP::Stream::HasProperty(address);
@@ -395,9 +395,9 @@ namespace CMIO { namespace DP { namespace Sample
 				answer = false;
 				break;
 
-			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
-				answer = false;
-				break;
+//			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
+//				answer = false;
+//				break;
 			
 			default:
 				answer = DP::Stream::IsPropertySettable(address);
@@ -424,9 +424,9 @@ namespace CMIO { namespace DP { namespace Sample
 				answer = sizeof(CMTime);
 				break;
 				
-			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
-				answer = sizeof(UInt32);
-				break;
+//			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
+//				answer = sizeof(UInt32);
+//				break;
 				
 			default:
 				answer = DP::Stream::GetPropertyDataSize(address, qualifierDataSize, qualifierData);
@@ -561,11 +561,11 @@ namespace CMIO { namespace DP { namespace Sample
 				dataUsed = sizeof(CMTime);
 				break;
 				
-			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
-				ThrowIf(dataSize != GetPropertyDataSize(address, qualifierDataSize, qualifierData), CAException(kCMIOHardwareBadPropertySizeError), "CMIO::DP::Stream::GetPropertyData: wrong data size for kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback");
-				*static_cast<UInt32*>(data) = GetMinimumInFlightFramesForThrottledPlayback();
-				dataUsed = sizeof(UInt32);
-				break;
+//			case kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback:
+//				ThrowIf(dataSize != GetPropertyDataSize(address, qualifierDataSize, qualifierData), CAException(kCMIOHardwareBadPropertySizeError), "CMIO::DP::Stream::GetPropertyData: wrong data size for kCMIOStreamPropertyOutputBuffersNeededForDroplessPlayback");
+//				*static_cast<UInt32*>(data) = GetMinimumInFlightFramesForThrottledPlayback();
+//				dataUsed = sizeof(UInt32);
+//				break;
 
 			default:
 				DP::Stream::GetPropertyData(address, qualifierDataSize, qualifierData, dataSize, dataUsed, data);

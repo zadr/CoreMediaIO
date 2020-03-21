@@ -56,7 +56,7 @@
 #include "CMIO_KEXT_Sample_ControlIDs.h"
 
 // System Includes
-#include <IOKit/usb/IOUSBLog.h>
+#include "USBLog.h"
 #include <IOKit/video/IOVideoStreamDictionary.h>
 #include <IOKit/video/IOVideoStreamFormatDictionary.h>
 #include <IOKit/video/IOVideoControlDictionary.h>
@@ -195,9 +195,7 @@ void IOVideoSampleDevice::free()
 bool IOVideoSampleDevice::start(IOService* provider)
 {
 
-	KernelDebugEnable(true);
-	KernelDebugSetLevel(7);
-	KernelDebugSetOutputType(kKernelDebugOutputKextLoggerType);
+	SetUSBLogLevel(7);
 	USBLog(1, "This is a test\n");
 
 	if (! super::start(provider))
